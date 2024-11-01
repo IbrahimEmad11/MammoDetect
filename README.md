@@ -37,13 +37,11 @@ MammoDetect preprocesses images by resizing, normalizing, and applying augmentat
 ### Sample Images
 
 - **Cropped Image**
-    - ![Cropped Image](images/sample_cropped.png)
-  
+  - ![Cropped Image](images/sample_cropped.png)
 - **Full Mammogram Image**
-    - ![Full Mammogram Image](images/sample_full_mammogram.png)
-  
+  - ![Full Mammogram Image](images/sample_full_mammogram.png)
 - **ROI Mask Image**
-    - ![ROI Mask Image](images/sample_roi_mask.png)
+  - ![ROI Mask Image](images/sample_roi_mask.png)
 
 ---
 
@@ -64,29 +62,30 @@ The model in MammoDetect was trained for 25 epochs with cross-entropy loss and a
 
 ### Accuracy and Loss Plot
 
-- **Training & Validation Accuracy**  
-    - ![Accuracy Plot](images/accuracy_plot.png)
+- **Training & Validation Accuracy**
 
-- **Training & Validation Loss**  
-    - ![Loss Plot](images/loss_plot.png)
+  - ![Accuracy Plot](images/accuracy_plot.png)
+
+- **Training & Validation Loss**
+  - ![Loss Plot](images/loss_plot.png)
 
 ---
 
 ## Example Predictions
 
-Here are example predictions made by MammoDetect on test images:![alt text](image.png)
+Here are example predictions made by MammoDetect on test images:
 
 - **Prediction on Cancerous Image**
-    - ![Cancerous Image](test_imgs/cancer/can2.png)
-  
+  - ![Cancerous Image](images/can.png)
 - **Prediction on Non-Cancerous Image**
-    - ![Non-Cancerous Image](test_imgs/benign/ben2.jpg)
+  - ![Non-Cancerous Image](images/non-can.png)
 
 ---
 
 ## Usage Instructions
 
 ### Prerequisites
+
 - Python 3.x
 - Required libraries: `torch`, `PIL`, `pandas`, `matplotlib`, `plotly`, `seaborn`
 
@@ -98,6 +97,7 @@ Here are example predictions made by MammoDetect on test images:![alt text](imag
 4. Use the inference function to predict on new images.
 
 ### Inference Example
+
 ```python
 from model import load_model, infer_image
 
@@ -111,4 +111,3 @@ print(f'Prediction: {predicted_label}, Confidence: {confidence}')
 ## Contributing
 
 For contributions, please open a pull request or submit an issue for discussion.
-
