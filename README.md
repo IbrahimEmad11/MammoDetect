@@ -115,11 +115,12 @@ Here are example predictions made by MammoDetect on test images:
 ### Inference Example
 
 ```python
-from model import load_model, infer_image
 
-model = load_model('CNN_model.pth')
-predicted_label, confidence = infer_image(model, 'path/to/image.jpg')
-print(f'Prediction: {predicted_label}, Confidence: {confidence}')
+model = load_trained_model(model, model_path= 'CNN_model.pth')
+image_path = 'path/to/image.jpg
+predicted_class, cancer_probability = infer_image(model, image_path)
+print(f'Predicted Class: {predicted_class}, Probability of Cancer: {cancer_probability:.4f}')
+
 ```
 
 ---
