@@ -1,8 +1,12 @@
+Here’s an updated version of the README file to include the histopathology dataset and clarify that the project trains on both mammography and histopathology data:
+
+---
+
 # MammoDetect: Breast Cancer Detection Using Convolutional Neural Networks (CNN)
 
 ## Project Overview
 
-MammoDetect is a machine learning project designed to detect breast cancer from mammography images using CNN models. It utilizes the **CBIS-DDSM** dataset, a comprehensive collection of breast images, and aims to classify images based on cancerous and non-cancerous findings.
+MammoDetect is a machine learning project designed to detect breast cancer using CNN models, leveraging both **mammography** and **histopathology** datasets. The primary focus is to classify breast images into cancerous and non-cancerous categories. The model is trained on both **CBIS-DDSM** mammography images and a histopathology dataset containing Invasive Ductal Carcinoma (IDC) regions, which are critical for cancer detection and grading.
 
 ---
 
@@ -20,52 +24,64 @@ MammoDetect is a machine learning project designed to detect breast cancer from 
 
 ## Dataset Description
 
-The **CBIS-DDSM** dataset used in MammoDetect includes high-resolution mammography images with key details as follows:
+### CBIS-DDSM Mammography Dataset
+
+The **CBIS-DDSM** dataset provides high-resolution mammography images curated to support breast cancer detection research. Key details are as follows:
 
 - **Number of Studies:** 6,775
 - **Number of Images:** 10,239
-- **Participants:** 1,566 unique individuals
+- **Participants:** 1,566 unique individuals (with additional IDs based on imaging views)
 - **Modality:** Mammography (MG)
 - **Image Size:** 6 GB in JPEG format
+
+### IDC Histopathology Dataset
+
+The **IDC Histopathology** dataset focuses on Invasive Ductal Carcinoma, the most common subtype of breast cancer. This dataset includes labeled 50x50 pixel patches extracted from whole slide images to highlight IDC-positive and IDC-negative regions. 
+
+- **Total Patches:** 277,524
+  - **IDC Negative:** 198,738 patches
+  - **IDC Positive:** 78,786 patches
+- **Labeling Format:** Patch filenames encode patient ID, coordinates, and class (0 for IDC-negative, 1 for IDC-positive)
 
 ---
 
 ## Data Preprocessing and Augmentation
 
-MammoDetect preprocesses images by resizing, normalizing, and applying augmentations such as random rotation, affine transformation, and horizontal flipping.
+MammoDetect preprocesses images from both datasets by resizing, normalizing, and applying augmentations such as random rotation, affine transformation, and horizontal flipping to enhance the model's robustness.
 
 ### Sample Images
 
-- **Cropped Image**
+- **Cropped Mammography Image**
   - ![Cropped Image](images/sample_cropped.png)
 - **Full Mammogram Image**
   - ![Full Mammogram Image](images/sample_full_mammogram.png)
 - **ROI Mask Image**
   - ![ROI Mask Image](images/sample_roi_mask.png)
+- **Histopathology IDC Patch**
+  - ![IDC Patch Image](images/histo.png)
 
 ---
 
 ## Model Architecture
 
-The custom CNN in MammoDetect consists of four convolutional layers, batch normalization, max pooling, and dropout layers, designed to classify mammography images into **Cancerous** and **Non-Cancerous** categories.
+The custom CNN in MammoDetect consists of four convolutional layers with batch normalization, max pooling, and dropout layers, designed to classify both mammography and histopathology images into **Cancerous** and **Non-Cancerous** categories.
 
 ---
 
 ## Training and Evaluation
 
-The model in MammoDetect was trained for 25 epochs with cross-entropy loss and an Adam optimizer, evaluating performance through accuracy and loss metrics.
+The model in MammoDetect was trained for 25 epochs with cross-entropy loss and an Adam optimizer. Training and validation performance are tracked with accuracy and loss metrics.
 
 ### Model Performance
 
-- **Training Accuracy:** Example values
-- **Validation Accuracy:** Example values
+- **Training Accuracy:** 96.665%
+- **Validation Accuracy:** 96.706%
 
 ### Accuracy and Loss Plot
 
 - **Training & Validation Accuracy**
-
   - ![Accuracy Plot](images/accuracy_plot.png)
-
+  
 - **Training & Validation Loss**
   - ![Loss Plot](images/loss_plot.png)
 
@@ -75,9 +91,9 @@ The model in MammoDetect was trained for 25 epochs with cross-entropy loss and a
 
 Here are example predictions made by MammoDetect on test images:
 
-- **Prediction on Cancerous Image**
+- **Prediction on Cancerous Mammogram**
   - ![Cancerous Image](images/can.png)
-- **Prediction on Non-Cancerous Image**
+- **Prediction on Non-Cancerous Mammogram**
   - ![Non-Cancerous Image](images/non-can.png)
 
 ---
@@ -92,9 +108,9 @@ Here are example predictions made by MammoDetect on test images:
 ### Steps
 
 1. Clone this repository.
-2. Download the **CBIS-DDSM** dataset using the `kagglehub` library or other methods.
+2. Download the **CBIS-DDSM** and **IDC Histopathology** datasets.
 3. Preprocess and train the model using the provided script.
-4. Use the inference function to predict on new images.
+4. Use the inference function to make predictions on new images.
 
 ### Inference Example
 
@@ -111,3 +127,7 @@ print(f'Prediction: {predicted_label}, Confidence: {confidence}')
 ## Contributing
 
 For contributions, please open a pull request or submit an issue for discussion.
+
+---
+
+This README now includes information about both datasets used in the project and their relevance to breast cancer detection. Let me know if there are additional details you would like to include!
