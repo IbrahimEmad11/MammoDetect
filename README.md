@@ -130,5 +130,3 @@ print(f'Predicted Class: {predicted_class}, Probability of Cancer: {cancer_proba
 For contributions, please open a pull request or submit an issue for discussion.
 
 ---
-
-This README now includes information about both datasets used in the project and their relevance to breast cancer detection. Let me know if there are additional details you would like to include!
