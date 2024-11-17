@@ -1,7 +1,3 @@
-Here’s an updated version of the README file to include the histopathology dataset and clarify that the project trains on both mammography and histopathology data:
-
----
-
 # MammoDetect: Breast Cancer Detection Using Convolutional Neural Networks (CNN)
 
 ## Project Overview
